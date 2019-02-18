@@ -61,10 +61,7 @@ module.exports = {
     preset: 'default',
     linkify: true,
     breaks: true,
-    use: [
-      ['markdown-it-container', containerName],
-      'markdown-it-attrs'
-    ]
+    injected: true
   },
 
   /*
