@@ -44,13 +44,27 @@ module.exports = {
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/markdownit'
   ],
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+  /*
+   * Markdownit options
+   * See https://github.com/markdown-it/markdown-it
+   */
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    use: [
+      ['markdown-it-container', containerName],
+      'markdown-it-attrs'
+    ]
   },
 
   /*
