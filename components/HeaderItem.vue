@@ -1,6 +1,6 @@
 <template>
   <div id="HeaderItem">
-    <v-navigation-drawer fixed v-model="drawer">
+    <v-navigation-drawer fixed v-model="drawer" app>
       <v-toolbar flat>
         <v-list>
           <v-list-tile>
