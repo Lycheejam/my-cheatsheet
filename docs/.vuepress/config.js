@@ -52,8 +52,10 @@ module.exports = {
     sidebarDepth: 3,  //サイドバー表示の階層指定
     displayAllHeaders: false,
     lastUpdated: '最終更新日',
-    repo: 'Lycheejam/my-cheatsheet',
-    repoLabel: 'GitHub',
+    //nav barへのリンク追加
+    //repo: 'Lycheejam/my-cheatsheet',
+    //repoLabel: 'GitHub',
+    //プルリクエストリンク
     docsRepo: 'Lycheejam/my-cheatsheet',
     docsDir: 'docs',
     editLinks: true,
