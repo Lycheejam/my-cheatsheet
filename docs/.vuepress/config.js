@@ -17,6 +17,13 @@ module.exports = {
         children: [
           '/MySQL/Create_db_and_user'
         ]
+      },
+      {
+        title: 'npm',
+        collapsable: false,
+        children: [
+          '/npm/Package_update'
+        ]
       }
     ],
     sidebarDepth: 3,  //サイドバー表示の階層指定
