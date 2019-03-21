@@ -1,0 +1,25 @@
+{
+  "name": "my-cheatsheet",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lycheejam/my-cheatsheet.git"
+  },
+  "scripts": {
+    "vuepress:dev": "vuepress dev"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/Lycheejam/my-cheatsheet/issues"
+  },
+  "homepage": "https://github.com/Lycheejam/my-cheatsheet#readme",
+  "devDependencies": {
+    "vuepress": "^0.14.10",
+    "webpack-dev-middleware": "^3.6.0"
+  },
+  "Dependencies": {
+    "vuepress": "^0.14.10",
+    "webpack-dev-middleware": "3.6.0"
+  }
+}
