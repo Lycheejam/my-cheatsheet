@@ -15,15 +15,15 @@ module.exports = {
         title: 'MySQL',
         collapsable: false,
         children: [
-          '/MySQL/Create_db_and_user',
-          '/MySQL/Db_and_table_character_set'
+          '/mysql/create_db_and_user',
+          '/mysql/db_and_table_character_set'
         ]
       },
       {
         title: 'npm',
         collapsable: false,
         children: [
-          '/npm/Package_update'
+          '/npm/package_update'
         ]
       }
     ],
