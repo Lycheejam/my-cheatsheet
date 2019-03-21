@@ -15,7 +15,8 @@ module.exports = {
         title: 'MySQL',
         collapsable: false,
         children: [
-          '/MySQL/Create_db_and_user'
+          '/MySQL/Create_db_and_user',
+          '/MySQL/Db_and_table_character_set'
         ]
       },
       {
