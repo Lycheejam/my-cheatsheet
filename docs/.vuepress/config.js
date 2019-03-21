@@ -1,4 +1,5 @@
 module.exports = {
+  title: 'チラ裏のメモ帳',
   themeConfig: {
     //ナビゲーションバー
     nav: [
@@ -48,8 +49,14 @@ module.exports = {
         ]
       }
     ],
-    sidebarDepth: 2,  //サイドバー表示の階層指定
+    sidebarDepth: 3,  //サイドバー表示の階層指定
     displayAllHeaders: false,
-    lastUpdated: '最終更新日'
+    lastUpdated: '最終更新日',
+    repo: 'Lycheejam/my-cheatsheet',
+    repoLabel: 'GitHub',
+    docsRepo: 'Lycheejam/my-cheatsheet',
+    docsDir: 'docs',
+    editLinks: true,
+    editLinkText: '編集を提案する'
   }
 }
