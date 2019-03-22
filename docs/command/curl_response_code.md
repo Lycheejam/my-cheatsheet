@@ -17,3 +17,7 @@ $ curl -i https://hogehoge.hoge
 ```sh
 $ curl -v https://hogehoge.hoge
 ```
+
+## 参考サイト様
+
+* [curl コマンド 使い方メモ \- Qiita](https://qiita.com/yasuhiroki/items/a569d3371a66e365316f)
