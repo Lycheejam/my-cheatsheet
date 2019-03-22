@@ -2,6 +2,8 @@
 
 VuePressを使用したミニブログです。  
 
+* [チラ裏のメモ帳 - https://cheatsheet.kitigai.org/](https://cheatsheet.kitigai.org/)
+
 ## コンセプト
 
 ローカルに雑に累積しているメモを何らかのタイミングで整備して自身で参照しやすくするための場が欲しかったので作成しました。  
