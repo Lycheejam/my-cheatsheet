@@ -13,7 +13,7 @@ module.exports = {
       ['', 'TOPページ'],
       {
         title: 'MySQL',
-        collapsable: false,
+        collapsable: true,
         children: [
           '/mysql/create_db_and_user',
           '/mysql/db_and_table_character_set'
@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         title: 'npm',
-        collapsable: false,
+        collapsable: true,
         children: [
           '/npm/package_update'
         ]
