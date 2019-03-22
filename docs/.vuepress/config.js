@@ -25,6 +25,13 @@ module.exports = {
         children: [
           '/npm/package_update'
         ]
+      },
+      {
+        title: 'コマンド系',
+        collapsable: true,
+        children: [
+          '/command/curl_response_code'
+        ]
       }
     ],
     sidebarDepth: 3,  //サイドバー表示の階層指定
