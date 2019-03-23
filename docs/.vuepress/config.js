@@ -1,6 +1,12 @@
 module.exports = {
   title: 'チラ裏のメモ帳',
   themeConfig: {
+    //検索オプション add Algolia
+    algolia: {
+      appId: 'ENL8ICJYDA',
+      apiKey: '7e396b5408b8f9221d55c9ee5adf528d',
+      indexName: 'index'
+    },
     //ナビゲーションバー
     nav: [
       { text: 'Home', link: '/' },
