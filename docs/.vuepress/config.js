@@ -1,5 +1,6 @@
 module.exports = {
   title: 'チラ裏のメモ帳',
+  ga: 'UA-106566961-4',
   themeConfig: {
     //検索オプション add Algolia
     algolia: {
