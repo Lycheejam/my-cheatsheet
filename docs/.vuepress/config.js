@@ -57,5 +57,11 @@ module.exports = {
   // markdown settings
   markdown: {
     lineNumbers: true
+  },
+  // Internationalization setting
+  locales: {
+    '/': {
+      lang: 'ja'
+    }
   }
 }
