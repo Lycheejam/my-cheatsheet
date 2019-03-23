@@ -18,6 +18,7 @@ module.exports = {
     // サイドバー
     sidebar: [
       ['', 'TOPページ'],
+      '/privacy',
       {
         title: 'MySQL',
         collapsable: true,
