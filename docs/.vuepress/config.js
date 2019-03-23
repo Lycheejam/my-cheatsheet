@@ -53,5 +53,9 @@ module.exports = {
     docsDir: 'docs',
     editLinks: true,
     editLinkText: '編集を提案する'
+  },
+  // markdown settings
+  markdown: {
+    lineNumbers: true
   }
 }
