@@ -38,7 +38,8 @@ module.exports = {
         title: 'git',
         collapsable: true,
         children: [
-          '/git/local_rollback'
+          '/git/local_rollback',
+          'git/stash'
         ]
       },
       {
