@@ -35,6 +35,13 @@ module.exports = {
         ]
       },
       {
+        title: 'git',
+        collapsable: true,
+        children: [
+          '/git/local_rollback'
+        ]
+      },
+      {
         title: 'コマンド系',
         collapsable: true,
         children: [
