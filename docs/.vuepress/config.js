@@ -8,9 +8,8 @@ module.exports = {
     base: '/',
     //検索オプション add Algolia
     algolia: {
-      appId: 'ENL8ICJYDA',
-      apiKey: '7e396b5408b8f9221d55c9ee5adf528d',
-      indexName: 'index'
+      apiKey: '84240d7e90e3258ff37677337e1b00ac',
+      indexName: 'cheatsheet_kitigai'
     },
     //ナビゲーションバー
     nav: [
