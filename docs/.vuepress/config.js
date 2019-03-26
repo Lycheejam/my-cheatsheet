@@ -1,7 +1,10 @@
+const fs = require('fs');
+
 module.exports = {
   title: 'チラ裏のメモ帳',
   ga: 'UA-106566961-4',
   themeConfig: {
+    base: '/',
     //検索オプション add Algolia
     algolia: {
       appId: 'ENL8ICJYDA',
@@ -16,40 +19,7 @@ module.exports = {
       { text: 'GitHub', link: 'https://github.com/Lycheejam' }
     ],
     // サイドバー
-    sidebar: [
-      ['', 'TOPページ'],
-      '/privacy',
-      {
-        title: 'MySQL',
-        collapsable: true,
-        children: [
-          '/mysql/create_db_and_user',
-          '/mysql/db_and_table_character_set'
-        ]
-      },
-      {
-        title: 'npm',
-        collapsable: true,
-        children: [
-          '/npm/package_update'
-        ]
-      },
-      {
-        title: 'git',
-        collapsable: true,
-        children: [
-          '/git/local_rollback',
-          'git/stash'
-        ]
-      },
-      {
-        title: 'コマンド系',
-        collapsable: true,
-        children: [
-          '/command/curl_response_code'
-        ]
-      }
-    ],
+    sidebar: getSidebarList(),
     sidebarDepth: 3,  //サイドバー表示の階層指定
     displayAllHeaders: false,
     lastUpdated: '最終更新日',
@@ -73,3 +43,26 @@ module.exports = {
     }
   }
 }
+
+function getFileItems (docdir) {
+  var items = fs.readdirSync(docdir).filter((f) => {
+    return fs.existsSync(docdir + "/" + f) && fs.statSync(docdir + "/" + f).isDirectory();
+  });
+  return items;
+};
+
+function getSidebarList () {
+  var dirpath = "./docs";
+  var itemlist = getFileItems(dirpath);
+
+  var list = ["/"].concat(itemlist.map((item) => {
+    return {
+      title: item,
+      collapsable: true,
+      children: fs.readdirSync(dirpath + "/" + item).map((childDir) => {
+        return "/" + item + "/" + childDir;
+      })
+    };
+  }));
+  return list;
+};
