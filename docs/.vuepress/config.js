@@ -21,8 +21,8 @@ module.exports = {
     // サイドバー
     sidebar: [
       //getSidebarItem('/'),
-      [ '' ],
-      [ '/privacy' ],
+      '',
+      '/privacy',
       getSidebarGroup('/mysql/', 'MySQL', true),
       getSidebarGroup('/npm/', 'npm', true),
       getSidebarGroup('/git/', 'Git', true),
@@ -52,40 +52,22 @@ module.exports = {
   }
 }
 
+//動かない
 function getSidebarItem (targetdir) {
   let rootdir = "./docs";
   let files = getFiles(rootdir, targetdir);
-  console.log('files :', files);
   
-  // console.log('test :', getFilepaths(files, targetdir).map((str => {
-  //   if (str === '/') {
-  //     str = '';
-  //   }
-  //   console.log('str :', str);
-  //   return '\'' + str + '\'';
-  // })).join());
-
-  // return getFilepaths(files, targetdir).map((str => {
-  //   if (str === '/') {
-  //     str = '';
-  //   }
-  //   console.log('str :', str);
-  //   return '\'' + str + '\'';
-  // })).join();
-  return getFilepaths(files, targetdir).join();
-  // let tmp = "\'\/\'\, \'\/privacy\.md\'";
-  // console.log('tmp :', tmp);
-  // return tmp;
+  return getFilepaths(files, targetdir).map((path) => {
+    return "[" + path + " ]";
+  }).join();
 };
 
 // サイドバーアイテムの作成 メイン
 function getSidebarGroup (targetdir, title, isCollapsable) {
-  console.log('------------ getSidebarList start');
   //vuepressルートディレクトリ
   let rootdir = "./docs";
 
   let files = getFiles(rootdir, targetdir);
-  console.log('files :', files);
 
   let grouptitle = toTitle(title, targetdir);
 
@@ -98,12 +80,6 @@ function getSidebarGroup (targetdir, title, isCollapsable) {
     // ディレクトリ配下のファイルリスト作成
     children: getFilepaths(files, targetdir)
   };
-  console.log('directoryGroup :', directoryGroup);
-  directoryGroup.children.map((child) => {
-    console.log('child :', child);
-  });
-
-  console.log('------------ getSidebarList end');
   return directoryGroup;
 };
 
