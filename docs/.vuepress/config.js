@@ -20,7 +20,9 @@ module.exports = {
     ],
     // サイドバー
     sidebar: [
-      getSidebarGroup('/', 'TOPページ', true),
+      //getSidebarItem('/'),
+      [ '' ],
+      [ '/privacy' ],
       getSidebarGroup('/mysql/', 'MySQL', true),
       getSidebarGroup('/npm/', 'npm', true),
       getSidebarGroup('/git/', 'Git', true),
@@ -49,6 +51,32 @@ module.exports = {
     }
   }
 }
+
+function getSidebarItem (targetdir) {
+  let rootdir = "./docs";
+  let files = getFiles(rootdir, targetdir);
+  console.log('files :', files);
+  
+  // console.log('test :', getFilepaths(files, targetdir).map((str => {
+  //   if (str === '/') {
+  //     str = '';
+  //   }
+  //   console.log('str :', str);
+  //   return '\'' + str + '\'';
+  // })).join());
+
+  // return getFilepaths(files, targetdir).map((str => {
+  //   if (str === '/') {
+  //     str = '';
+  //   }
+  //   console.log('str :', str);
+  //   return '\'' + str + '\'';
+  // })).join();
+  return getFilepaths(files, targetdir).join();
+  // let tmp = "\'\/\'\, \'\/privacy\.md\'";
+  // console.log('tmp :', tmp);
+  // return tmp;
+};
 
 // サイドバーアイテムの作成 メイン
 function getSidebarGroup (targetdir, title, isCollapsable) {
