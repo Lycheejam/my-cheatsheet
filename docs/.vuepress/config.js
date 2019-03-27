@@ -19,7 +19,15 @@ module.exports = {
       { text: 'GitHub', link: 'https://github.com/Lycheejam' }
     ],
     // サイドバー
-    sidebar: getSidebarList(),
+    sidebar: [
+      //getSidebarItem('/'),
+      '',
+      '/privacy',
+      getSidebarGroup('/mysql/', 'MySQL', true),
+      getSidebarGroup('/npm/', 'npm', true),
+      getSidebarGroup('/git/', 'Git', true),
+      getSidebarGroup('/command/', 'コマンド系', true)
+    ],
     sidebarDepth: 3,  //サイドバー表示の階層指定
     displayAllHeaders: false,
     lastUpdated: '最終更新日',
@@ -44,110 +52,65 @@ module.exports = {
   }
 }
 
+//動かない
+function getSidebarItem (targetdir) {
+  let rootdir = "./docs";
+  let files = getFiles(rootdir, targetdir);
+  
+  return getFilepaths(files, targetdir).map((path) => {
+    return "[" + path + " ]";
+  }).join();
+};
+
 // サイドバーアイテムの作成 メイン
-function getSidebarList () {
-  console.log('------------ getSidebarList start');
-  //rootパス用
-  let root = ['/']
+function getSidebarGroup (targetdir, title, isCollapsable) {
   //vuepressルートディレクトリ
   let rootdir = "./docs";
 
-  //root直下のファイル群はグループ化しないためファイルを単品で表示する。
-  //root直下のファイル一覧取得
-  let rootfiles = getRootFileItems(rootdir);
-  console.log('rootfiles :', rootfiles);
-  //ファイルパスの生成
-  let rootGroup = rootfiles.map((file) => {
-    return '/' + file;
-  });
+  let files = getFiles(rootdir, targetdir);
 
-  //ディレクトリ一覧の取得
-  let directores = getDirectores(rootdir);
-  console.log('directores :', directores);
+  let grouptitle = toTitle(title, targetdir);
 
-  //サイドバーアイテムの作成（ディレクトリ毎）
-  let directoryGroups = directores.map((directory) => {
-    //サイドバーアイテムの作成
-    return {
-      // グループリストタイトル
-      title: directory,
-      // グループリスト展開有無
-      collapsable: true,
-      // ディレクトリ配下のファイルリスト作成
-      children: getFileitems(rootdir, directory)
-    };
-  });
-  console.log('directoryGroups :', directoryGroups);
-
-  // root直下のファイル群とroot配下のディレクトリ群を結合してサイドバーのアイテムとする。
-  // ※root直下のREADME.mdについては'/'で表現される。
-  let sidebarItems = root.concat(rootGroup, directoryGroups);
-
-  console.log('sidebarItems :', sidebarItems);
-  sidebarItems.map((item) => {
-    console.log('item :', item);
-  });
-  console.log('------------ getSidebarList end');
-  return sidebarItems;
-};
-
-// ディレクトリ一覧の取得
-function getDirectores (rootdir) {
-  // root配下のファイル＆ディレクトリ一覧取得
-  let directores = fs.readdirSync(rootdir).filter((childdir) => {
-    // .vuepressのみ除外
-    if (childdir !== '.vuepress') {
-      // ディレクトリの場合：true 対象がファイルであった場合はfalse
-      return isDirectory(rootdir + '/' + childdir);
-    }else{
-      //対象ディレクトリが.vuepressの場合、false
-      return false;
-    }
-  });
-  return directores;
-};
-
-// ルート直下のファイルを取得（ex.README.md, privacy.md...etc）
-function getRootFileItems (rootdir) {
-  // root配下のファイル＆ディレクトリ一覧取得
-  let files = fs.readdirSync(rootdir).filter((file) => {
-    //root配下のREADME.mdは'/'で表現されるので排除する。
-    if (file !== 'README.md') {
-      // ファイル存在判定 and マークダウンファイル判定
-      return isFile(rootdir + '/' + file);
-    } else {
-      // README.mdの場合：false
-      return false;
-    };
-  });
-  return files;
-};
-
-// ディレクトリ存在確認
-function isDirectory(targetpath) {
-  // existsSyncは非推奨だから使わないほうが良い？
-  // 参考；fs.statSyncでファイルの存在判定 - Qiita https://qiita.com/tokimari/items/82222e1f99b2b9eb1fb8
-  // やっぱりこのままでいいっぽい
-  // 参考：Node.js でディレクトリかどうかを判定する方法 | phiary http://phiary.me/nodejs-check-is-directory/
-  // ディレクトリが存在する かつ 対象パスはディレクトリか否か
-  return fs.existsSync(targetpath) && fs.statSync(targetpath).isDirectory();
-};
-
-// ファイル存在確認（マークダウンファイル判定）
-function isFile(targetpath) {
-  return fs.existsSync(targetpath) && fs.statSync(targetpath).isFile() && path.extname(targetpath) === '.md';
+  //サイドバーアイテムの作成
+  let directoryGroup =  {
+    // グループリストタイトル
+    title: grouptitle,
+    // グループリスト展開有無
+    collapsable: isCollapsable,
+    // ディレクトリ配下のファイルリスト作成
+    children: getFilepaths(files, targetdir)
+  };
+  return directoryGroup;
 };
 
 // 対象ディレクトリ配下のファイルを取得
-function getFileitems(rootdir, targetdir) {
-  return fs.readdirSync(rootdir + "/" + targetdir).map((file) => {
+function getFilepaths(files, targetdir) {
+  return files.map((file) => {
     // 子ディレクトリ配下にREADME.mdが存在する場合は子ディレクトリのパスとする。
     if (file !== 'README.md') {
       // README.md以外の場合は子ディレクトリ+ファイル名を返す。
-      return "/" + targetdir + "/" + file;
+      return targetdir + file;
     } else {
       // README.mdの場合は子ディレクトリ直下のパスとする。
-      return "/" + targetdir + "/"
+      return targetdir;
     }
-  })
+  });
+};
+
+function getFiles (rootdir, targetpath) {
+  return fs.readdirSync(rootdir + targetpath).filter((file) => {
+    return isFile(rootdir + targetpath + file);
+  });
+};
+
+function isFile(targetfile) {
+  return fs.existsSync(targetfile) && fs.statSync(targetfile).isFile() && path.extname(targetfile) === '.md';
+};
+
+function toTitle(title, targetpath) {
+  if (title === '') {
+    return targetpath.replace('/', '')
+  } else {
+    return title
+  }
 };
