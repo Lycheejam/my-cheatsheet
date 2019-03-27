@@ -5,7 +5,7 @@ module.exports = {
   title: 'チラ裏のメモ帳',
   ga: 'UA-106566961-4',
   themeConfig: {
-    base: '/',
+    // base: '/',
     //検索オプション add Algolia
     algolia: {
       apiKey: '84240d7e90e3258ff37677337e1b00ac',
@@ -48,25 +48,25 @@ module.exports = {
 function getSidebarList () {
   console.log('------------ getSidebarList start');
   //rootパス用
-  var root = ['/']
+  let root = ['/']
   //vuepressルートディレクトリ
-  var rootdir = "./docs";
+  let rootdir = "./docs";
 
   //root直下のファイル群はグループ化しないためファイルを単品で表示する。
   //root直下のファイル一覧取得
-  var rootfiles = getRootFileItems(rootdir);
+  let rootfiles = getRootFileItems(rootdir);
   console.log('rootfiles :', rootfiles);
   //ファイルパスの生成
-  var rootGroup = rootfiles.map((file) => {
+  let rootGroup = rootfiles.map((file) => {
     return '/' + file;
   });
 
   //ディレクトリ一覧の取得
-  var directores = getDirectores(rootdir);
+  let directores = getDirectores(rootdir);
   console.log('directores :', directores);
 
   //サイドバーアイテムの作成（ディレクトリ毎）
-  var directoryGroups = directores.map((directory) => {
+  let directoryGroups = directores.map((directory) => {
     //サイドバーアイテムの作成
     return {
       // グループリストタイトル
@@ -81,7 +81,7 @@ function getSidebarList () {
 
   // root直下のファイル群とroot配下のディレクトリ群を結合してサイドバーのアイテムとする。
   // ※root直下のREADME.mdについては'/'で表現される。
-  var sidebarItems = root.concat(rootGroup, directoryGroups);
+  let sidebarItems = root.concat(rootGroup, directoryGroups);
 
   console.log('sidebarItems :', sidebarItems);
   sidebarItems.map((item) => {
@@ -94,7 +94,7 @@ function getSidebarList () {
 // ディレクトリ一覧の取得
 function getDirectores (rootdir) {
   // root配下のファイル＆ディレクトリ一覧取得
-  var directores = fs.readdirSync(rootdir).filter((childdir) => {
+  let directores = fs.readdirSync(rootdir).filter((childdir) => {
     // .vuepressのみ除外
     if (childdir !== '.vuepress') {
       // ディレクトリの場合：true 対象がファイルであった場合はfalse
@@ -110,7 +110,7 @@ function getDirectores (rootdir) {
 // ルート直下のファイルを取得（ex.README.md, privacy.md...etc）
 function getRootFileItems (rootdir) {
   // root配下のファイル＆ディレクトリ一覧取得
-  var files = fs.readdirSync(rootdir).filter((file) => {
+  let files = fs.readdirSync(rootdir).filter((file) => {
     //root配下のREADME.mdは'/'で表現されるので排除する。
     if (file !== 'README.md') {
       // ファイル存在判定 and マークダウンファイル判定
@@ -141,6 +141,13 @@ function isFile(targetpath) {
 // 対象ディレクトリ配下のファイルを取得
 function getFileitems(rootdir, targetdir) {
   return fs.readdirSync(rootdir + "/" + targetdir).map((file) => {
-    return "/" + targetdir + "/" + file;
+    // 子ディレクトリ配下にREADME.mdが存在する場合は子ディレクトリのパスとする。
+    if (file !== 'README.md') {
+      // README.md以外の場合は子ディレクトリ+ファイル名を返す。
+      return "/" + targetdir + "/" + file;
+    } else {
+      // README.mdの場合は子ディレクトリ直下のパスとする。
+      return "/" + targetdir + "/"
+    }
   })
 };
