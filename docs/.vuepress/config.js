@@ -18,7 +18,14 @@ module.exports = {
       { text: 'GitHub', link: 'https://github.com/Lycheejam' }
     ],
     // サイドバー
-    sidebar: sidebar.getSidebarList(),
+    sidebar: [
+      ['', 'TOPページ'],
+      '/privacy',
+      sidebar.getSidebarGroup('git', 'git', true),
+      sidebar.getSidebarGroup('mysql', 'MySQL', true),
+      sidebar.getSidebarGroup('npm', 'npm', true),
+      sidebar.getSidebarGroup('command', 'コマンド系', true)
+    ],
     sidebarDepth: 3,  //サイドバー表示の階層指定
     displayAllHeaders: false,
     lastUpdated: '最終更新日',
