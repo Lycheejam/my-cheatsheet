@@ -1,5 +1,4 @@
-const fs = require('fs');
-const path = require('path');
+const sidebar = require('vuepress-sidebar-generator')
 
 module.exports = {
   title: 'チラ裏のメモ帳',
@@ -19,15 +18,7 @@ module.exports = {
       { text: 'GitHub', link: 'https://github.com/Lycheejam' }
     ],
     // サイドバー
-    sidebar: [
-      //getSidebarItem('/'),
-      '',
-      '/privacy',
-      getSidebarGroup('/mysql/', 'MySQL', true),
-      getSidebarGroup('/npm/', 'npm', true),
-      getSidebarGroup('/git/', 'Git', true),
-      getSidebarGroup('/command/', 'コマンド系', true)
-    ],
+    sidebar: sidebar.getSidebarList(),
     sidebarDepth: 3,  //サイドバー表示の階層指定
     displayAllHeaders: false,
     lastUpdated: '最終更新日',
@@ -51,66 +42,3 @@ module.exports = {
     }
   }
 }
-
-//動かない
-function getSidebarItem (targetdir) {
-  let rootdir = "./docs";
-  let files = getFiles(rootdir, targetdir);
-  
-  return getFilepaths(files, targetdir).map((path) => {
-    return "[" + path + " ]";
-  }).join();
-};
-
-// サイドバーアイテムの作成 メイン
-function getSidebarGroup (targetdir, title, isCollapsable) {
-  //vuepressルートディレクトリ
-  let rootdir = "./docs";
-
-  let files = getFiles(rootdir, targetdir);
-
-  let grouptitle = toTitle(title, targetdir);
-
-  //サイドバーアイテムの作成
-  let directoryGroup =  {
-    // グループリストタイトル
-    title: grouptitle,
-    // グループリスト展開有無
-    collapsable: isCollapsable,
-    // ディレクトリ配下のファイルリスト作成
-    children: getFilepaths(files, targetdir)
-  };
-  return directoryGroup;
-};
-
-// 対象ディレクトリ配下のファイルを取得
-function getFilepaths(files, targetdir) {
-  return files.map((file) => {
-    // 子ディレクトリ配下にREADME.mdが存在する場合は子ディレクトリのパスとする。
-    if (file !== 'README.md') {
-      // README.md以外の場合は子ディレクトリ+ファイル名を返す。
-      return targetdir + file;
-    } else {
-      // README.mdの場合は子ディレクトリ直下のパスとする。
-      return targetdir;
-    }
-  });
-};
-
-function getFiles (rootdir, targetpath) {
-  return fs.readdirSync(rootdir + targetpath).filter((file) => {
-    return isFile(rootdir + targetpath + file);
-  });
-};
-
-function isFile(targetfile) {
-  return fs.existsSync(targetfile) && fs.statSync(targetfile).isFile() && path.extname(targetfile) === '.md';
-};
-
-function toTitle(title, targetpath) {
-  if (title === '') {
-    return targetpath.replace('/', '')
-  } else {
-    return title
-  }
-};
