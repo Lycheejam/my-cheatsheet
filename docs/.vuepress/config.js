@@ -24,7 +24,8 @@ module.exports = {
       sidebar.getSidebarGroup('git', 'git', true),
       sidebar.getSidebarGroup('mysql', 'MySQL', true),
       sidebar.getSidebarGroup('npm', 'npm', true),
-      sidebar.getSidebarGroup('command', 'コマンド系', true)
+      sidebar.getSidebarGroup('command', 'コマンド系', true),
+      sidebar.getSidebarGroup('shortcut', 'ショートカット系', true)
     ],
     sidebarDepth: 3,  //サイドバー表示の階層指定
     displayAllHeaders: false,
