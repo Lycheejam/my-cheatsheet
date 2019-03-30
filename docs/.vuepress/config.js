@@ -27,7 +27,7 @@ module.exports = {
       sidebar.getSidebarGroup('command', 'コマンド系', true),
       sidebar.getSidebarGroup('shortcut', 'ショートカット系', true)
     ],
-    sidebarDepth: 3,  //サイドバー表示の階層指定
+    sidebarDepth: 1,  //サイドバー表示の階層指定
     displayAllHeaders: false,
     lastUpdated: '最終更新日',
     //nav barへのリンク追加
