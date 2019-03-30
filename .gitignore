@@ -85,3 +85,4 @@ sw.*
 docs/.DS_Store
 cheatsheet.code-workspace
 .vscode/
+dirlist.txt

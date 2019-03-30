@@ -24,9 +24,11 @@ module.exports = {
       sidebar.getSidebarGroup('git', 'git', true),
       sidebar.getSidebarGroup('mysql', 'MySQL', true),
       sidebar.getSidebarGroup('npm', 'npm', true),
-      sidebar.getSidebarGroup('command', 'コマンド系', true)
+      sidebar.getSidebarGroup('command', 'コマンド系', true),
+      sidebar.getSidebarGroup('shortcut', 'ショートカット系', true),
+      sidebar.getSidebarGroup('uncategorized', '未分類', true)
     ],
-    sidebarDepth: 3,  //サイドバー表示の階層指定
+    sidebarDepth: 1,  //サイドバー表示の階層指定
     displayAllHeaders: false,
     lastUpdated: '最終更新日',
     //nav barへのリンク追加
