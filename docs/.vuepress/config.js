@@ -24,6 +24,7 @@ module.exports = {
       sidebar.getSidebarGroup('git', 'git', true),
       sidebar.getSidebarGroup('mysql', 'MySQL', true),
       sidebar.getSidebarGroup('npm', 'npm', true),
+      sidebar.getSidebarGroup('docker', 'Docker', true),
       sidebar.getSidebarGroup('command', 'コマンド系', true),
       sidebar.getSidebarGroup('shortcut', 'ショートカット系', true),
       sidebar.getSidebarGroup('uncategorized', '未分類', true)
