@@ -3,6 +3,11 @@ const sidebar = require('vuepress-sidebar-generator')
 module.exports = {
   title: 'チラ裏のメモ帳',
   ga: 'UA-106566961-4',
+  head: [
+    [ 'script', { type: 'text/javascript', src: 'https://b.st-hatena.com/js/bookmark_button.js', charset: 'utf-8', async: 'async' } ],
+    [ 'script', { type: 'text/javascript', src: 'https://platform.twitter.com/widgets.js', charset: 'utf-8', async: 'async' } ],
+    [ 'link', { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity: 'sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin: 'anonymous'} ]
+  ],
   themeConfig: {
     // base: '/',
     //検索オプション add Algolia
@@ -14,8 +19,7 @@ module.exports = {
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Twitter', link: 'https://twitter.com/Lychee_jam' },
-      { text: 'Blog', link: 'https://kitigai.hatenablog.com/' },
-      { text: 'GitHub', link: 'https://github.com/Lycheejam' }
+      { text: 'Blog', link: 'https://kitigai.hatenablog.com/' }
     ],
     // サイドバー
     sidebar: [
@@ -31,10 +35,11 @@ module.exports = {
     ],
     sidebarDepth: 1,  //サイドバー表示の階層指定
     displayAllHeaders: false,
+    //activeHeaderLinks: true,
     lastUpdated: '最終更新日',
     //nav barへのリンク追加
-    //repo: 'Lycheejam/my-cheatsheet',
-    //repoLabel: 'GitHub',
+    repo: 'Lycheejam/my-cheatsheet',
+    repoLabel: 'GitHub',
     //プルリクエストリンク
     docsRepo: 'Lycheejam/my-cheatsheet',
     docsDir: 'docs',
