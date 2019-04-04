@@ -4,6 +4,9 @@
 
     <Content :custom="false"/>
 
+    <!-- custom component -->
+    <ShareButtons />
+
     <div class="page-edit">
       <div
         class="edit-link"
@@ -63,10 +66,13 @@
 
 <script>
 import { resolvePage, normalize, outboundRE, endingSlashRE } from './util'
+import ShareButtons from '../components/ShareButtons.vue'
 
 export default {
   props: ['sidebarItems'],
-
+  components: {
+    ShareButtons
+  },
   computed: {
     lastUpdated () {
       if (this.$page.lastUpdated) {
