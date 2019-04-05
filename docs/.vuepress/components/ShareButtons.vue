@@ -1,20 +1,19 @@
 <template>
   <div id="ShareButtons">
-    <ul class="fa-2x buttons">
-      <li>
-        <!-- Twitter -->
+    <div class="btn-container">
+      <!-- Twitter -->
+      <div class="btn-flex">
         <a
           :href="getTwitterUrl()"
           class="twitter-share-button"
           data-lang="ja"
           data-show-count="false"
         >
-          <i class="fab fa-twitter"></i>
+          <i class="fab fa-twitter fa-2x"></i>
         </a>
-      </li>
-      <li class="hatena-icon">
-        <!-- hatena bookmark -->
-        <div>
+      </div>
+      <!-- hatena bookmark -->
+      <div class="btn-flex">
         <a
           href="http://b.hatena.ne.jp/entry/"
           class="hatena-bookmark-button"
@@ -31,9 +30,8 @@
               style="border: none;"
             />
         </a>
-        </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -70,14 +68,18 @@ export default {
 </script>
 
 <style scoped>
-.buttons li {
-  list-style: none;
-  float: left;
-  margin: 5px 10px;
+#ShareButtons {
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 1rem 2.5rem;
 }
 
-.hatena-icon {
-  text-align: center;
+.btn-container {
+  padding: 0;
+  margin: 0;
+	display: flex;
+	justify-content: space-around;
+  align-items: center;
 }
 
 .fa-twitter {
