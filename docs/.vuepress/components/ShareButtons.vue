@@ -1,19 +1,19 @@
 <template>
   <div id="ShareButtons">
-    <ul class="fa-2x">
+    <ul class="fa-2x buttons">
       <li>
+        <!-- Twitter -->
         <a
-          href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+          :href="getTwitterUrl()"
           class="twitter-share-button"
+          data-lang="ja"
           data-show-count="false"
         >
           <i class="fab fa-twitter"></i>
         </a>
       </li>
-      <li>
-        <i class="fab fa-facebook"></i>
-      </li>
       <li class="hatena-icon">
+        <!-- hatena bookmark -->
         <div>
         <a
           href="http://b.hatena.ne.jp/entry/"
@@ -32,24 +32,6 @@
             />
         </a>
         </div>
-
-      </li>
-      <li>
-        <a
-          :href="lineUrl"
-        >
-          <i class="fab fa-line"></i>
-        </a>
-      </li>
-      <li>
-        <a
-          data-pocket-label="pocket"
-          data-pocket-count="none"
-          class="pocket-btn"
-          data-lang="en"
-        >
-          <i class="fab fa-get-pocket"></i>
-        </a>
       </li>
     </ul>
   </div>
@@ -60,12 +42,8 @@ export default {
   name: 'ShareButtons',
   data () {
     return {
-      url: `https://cheatsheet.kitigai.org${this.$route.path}`,
-      twitter_url: '',
-      facebook_url: '',
-      hatena_url: '',
-      line_url: 'https://social-plugins.line.me/lineit/share?url={0}',
-      pocket_url: ''
+      share_url: `${location.origin}`,
+      twitter_url: 'https://twitter.com/intent/tweet?url={0}&text={1}'
     }
   },
   methods: {
@@ -81,25 +59,18 @@ export default {
         return args[k];
       });
     },
-    // それぞれパラメータを埋め込む
-    twitterUrl() {
-      return this.formatByArr(this.twitter_url, this.url, this.title);
+    getCurrentPath: function() {
+      return this.share_url.join($route.path);
     },
-    hatebuUrl() {
-      return this.formatByArr(this.hatebu_url, this.url, this.title);
-    },
-    pocketUrl() {
-      return this.formatByArr(this.pocket_url, this.url);
-    },
-    lineUrl() {
-      return this.formatByArr(this.line_url, this.url)
+    getTwitterUrl: function() {
+      return this.formatByArr(this.twitter_url, this.share_url, this.$title);
     }
   }
 }
 </script>
 
-<style>
-#ShareButtons li{
+<style scoped>
+.buttons li {
   list-style: none;
   float: left;
   margin: 5px 10px;
