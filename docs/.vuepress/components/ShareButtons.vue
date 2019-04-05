@@ -40,8 +40,13 @@ export default {
   name: 'ShareButtons',
   data () {
     return {
-      share_url: `${location.origin}`,
+      share_url: null,
       twitter_url: 'https://twitter.com/intent/tweet?url={0}&text={1}'
+    }
+  },
+  mounted: {
+    function () {
+      this.share_url = location.origin
     }
   },
   methods: {
