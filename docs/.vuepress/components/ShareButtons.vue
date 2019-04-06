@@ -9,26 +9,45 @@
           data-lang="ja"
           data-show-count="false"
         >
-          <i class="fab fa-twitter fa-2x"></i>
+          Tweet
         </a>
       </div>
       <!-- hatena bookmark -->
       <div class="btn-flex">
         <a
-          href="http://b.hatena.ne.jp/entry/"
+          :href="getHatenaUrl()"
           class="hatena-bookmark-button"
           data-hatena-bookmark-layout="basic"
-          data-hatena-bookmark-width="28"
           data-hatena-bookmark-height="28"
+          data-hatena-bookmark-width="28"
+          data-hatena-bookmark-lang="ja"
           title="このエントリーをはてなブックマークに追加"
         >
-            <img
-              src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
-              alt="このエントリーをはてなブックマークに追加"
-              width="20"
-              height="20"
-              style="border: none;"
-            />
+          <img
+            src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
+            alt="このエントリーをはてなブックマークに追加"
+            width="20"
+            height="20"
+            style="border: none;"
+          />
+        </a>
+      </div>
+      <!-- Pocket -->
+      <div class="btn-flex">
+        <a
+          :href="getPocketUrl()"
+          target="_blank"
+        >
+          <i class="fab fa-get-pocket fa-2x"></i>
+        </a>
+      </div>
+      <!-- LINE -->
+      <div class="btn-flex">
+        <a
+          :href="getLineUrl()"
+          target="_blank"
+        >
+          <i class="fab fa-line fa-2x"></i>
         </a>
       </div>
     </div>
@@ -40,8 +59,11 @@ export default {
   name: 'ShareButtons',
   data () {
     return {
-      share_url: 'https://cheatsheet.kitigai.org/',
-      twitter_url: 'https://twitter.com/intent/tweet?url={0}&text={1}'
+      share_url: 'https://cheatsheet.kitigai.org',
+      twitter_url: 'https://twitter.com/intent/tweet?url={0}&text={1}',
+      hatena_url: 'http://b.hatena.ne.jp/add?mode=confirm&url={0}&title={1}',
+      pocket_url: 'http://getpocket.com/edit?url={0}&title={1}',
+      line_url: 'https://social-plugins.line.me/lineit/share?url={0}'
     }
   },
   methods: {
@@ -57,11 +79,17 @@ export default {
         return args[k];
       });
     },
-    getCurrentPath: function() {
-      return this.share_url.join($route.path);
+    getTwitterUrl() {
+      return this.formatByArr(this.twitter_url, this.share_url + this.$route.fullPath, this.$title);
     },
-    getTwitterUrl: function() {
-      return this.formatByArr(this.twitter_url, this.share_url, this.$title);
+    getHatenaUrl() {
+      return this.formatByArr(this.hatena_url, this.share_url + this.$route.fullPath, this.$title);
+    },
+    getPocketUrl() {
+      return this.formatByArr(this.pocket_url, this.share_url + this.$route.fullPath, this.$title);
+    },
+    getLineUrl() {
+      return this.formatByArr(this.line_url, this.share_url + this.$route.fullPath);
     }
   }
 }
@@ -78,8 +106,12 @@ export default {
   padding: 0;
   margin: 0;
 	display: flex;
-	justify-content: space-around;
+	justify-content: flex-end;
   align-items: center;
+}
+
+.btn-flex {
+  margin: 0 10px
 }
 
 .fa-twitter {
