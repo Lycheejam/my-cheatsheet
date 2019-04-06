@@ -40,14 +40,8 @@ export default {
   name: 'ShareButtons',
   data () {
     return {
-      share_url: null,
+      share_url: 'https://cheatsheet.kitigai.org/',
       twitter_url: 'https://twitter.com/intent/tweet?url={0}&text={1}'
-    }
-  },
-  mounted: {
-    function () {
-      //this.share_url = location.origin
-      this.share_url = 'https://cheatsheet.kitigai.org/'
     }
   },
   methods: {
