@@ -46,7 +46,8 @@ export default {
   },
   mounted: {
     function () {
-      this.share_url = location.origin
+      //this.share_url = location.origin
+      this.share_url = 'https://cheatsheet.kitigai.org/'
     }
   },
   methods: {
