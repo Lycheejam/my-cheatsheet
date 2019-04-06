@@ -12,12 +12,14 @@
 |-|-|
 |新規ウィンドウ|`command（⌘）` + `N`|
 |新規ディレクトリ|`command（⌘）` + `shift（⇧）` + `N`|
+|隠しディレクトリを表示|`command（⌘）` + `shift（⇧）` + `.（ドット）`|
 
 ## 参考サイト様
 
 * [Mac のキーボードショートカット \- Apple サポート](https://support.apple.com/ja-jp/HT201236)
 * [macOS Sierra: 複数の操作スペースを操作する](https://support.apple.com/kb/PH25574?locale=ja_JP&viewlocale=ja_JP)
 * [Macで開発するなら抑えておくべきショートカットキーまとめ \- Qiita](https://qiita.com/ryuichi1208/items/95b835b63c31d39c7629)
+* [【Mac】隠しファイル・隠しフォルダを表示する方法 \- Qiita](https://qiita.com/TsukasaHasegawa/items/fa8e783a556dc1a08f51)
 
 ## テンプレート
 
