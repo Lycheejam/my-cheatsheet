@@ -14,8 +14,8 @@ VuePressを使用したミニブログです。
 
 ## 開発環境
 
-> Mac OS X Mojave 10.14.3
-> VisualStudio Code 1.32.2
+* Mac OS X Mojave 10.14.3
+* VisualStudio Code 1.32.2
 
 ```sh
 $ node -v
@@ -38,9 +38,11 @@ DNSはAWS Route53を使用しSSL証明書はACMを使用しています。
 # 関連ブログ記事
 このプロジェクトに関連するブログ記事です。
 
-* 
-* 
-* 
+* [VuePressを起動するとres\.getHeader is not a functionエラーが発生する。 \- あとらすの備忘録](https://kitigai.hatenablog.com/entry/2019/03/23/040448)
+* [VuePressのLastUpdated表示フォーマットを変更する。 \- あとらすの備忘録](https://kitigai.hatenablog.com/entry/2019/03/24/033818)
+* [VuePressに GoogleSearchConsole のメタタグを埋め込む \- あとらすの備忘録](https://kitigai.hatenablog.com/entry/2019/03/28/233451)
+* [Algolia DocSearch\-Scraperでクロールを実行する（INDEXを作成する） \- あとらすの備忘録](https://kitigai.hatenablog.com/entry/2019/04/03/155921)
+* [VuePressでAlgolia DocSearchを有効化する（申請パターン） \- あとらすの備忘録](https://kitigai.hatenablog.com/entry/2019/04/04/133432)
 
 # 関連プロジェクト
 本プロジェクトは下記のプロジェクトと関連しています。
