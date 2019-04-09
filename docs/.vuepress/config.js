@@ -29,6 +29,7 @@ module.exports = {
       sidebar.getSidebarGroup('mysql', 'MySQL', true),
       sidebar.getSidebarGroup('npm', 'npm', true),
       sidebar.getSidebarGroup('docker', 'Docker', true),
+      sidebar.getSidebarGroup('dotnet', 'dotnet CLI', true),
       sidebar.getSidebarGroup('command', 'コマンド系', true),
       sidebar.getSidebarGroup('shortcut', 'ショートカット系', true),
       sidebar.getSidebarGroup('uncategorized', '未分類', true)
