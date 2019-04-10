@@ -1,6 +1,6 @@
 # dotnet CLIでのNuGet Package操作
 
-* <PACKAGE_NAME> = Package Name
+* PACKAGE_NAME = パッケージ名
 
 ## NuGet Packageの追加
 
