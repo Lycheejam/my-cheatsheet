@@ -6,6 +6,7 @@ module.exports = {
   head: [
     [ 'script', { type: 'text/javascript', src: 'https://platform.twitter.com/widgets.js', charset: 'utf-8', defer: 'defer', async: 'async' } ],
     [ 'script', { type: 'text/javascript', src: 'https://b.st-hatena.com/js/bookmark_button.js', charset: 'utf-8', defer: 'defer', async: 'async' } ],
+    [ 'script', { type: 'text/javascript', id: 'Cookiebot', src: 'https://consent.cookiebot.com/uc.js', 'data-cbid': '814aefbc-5295-48c2-ae65-607f46849fdc-8', async: 'async' } ],
     [ 'link', { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.8.1/css/all.css', integrity: 'sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf', crossorigin: 'anonymous'} ]
   ],
   themeConfig: {
