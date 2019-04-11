@@ -1,7 +1,7 @@
 # dotnet CLIでのSLNファイルの操作
 
-* <SLN_FILE> = ソリューションファイル
-* <TARGET_PROJECT> = 追加するプロジェクトファイル
+* SLN_FILE = ソリューションファイル
+* TARGET_PROJECT = 追加するプロジェクトファイル
 
 ## ソリューションにプロジェクトを追加
 
