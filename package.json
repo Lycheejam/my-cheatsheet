@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "sitemapgen": "vuepress-sitemap -H https://cheatsheet.kitigai.org -d docs/.vuepress/dist"
   },
   "author": "",
   "bugs": {

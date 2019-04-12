@@ -24,6 +24,9 @@ phases:
       - echo build start
       - npm run build
       - echo build completed
+      - echo sitemap generate start
+      - npm run sitemapgen
+      - echo sitemap generate completed
   post_build:
     commands:
       - echo Delete S3 Bucket object...
