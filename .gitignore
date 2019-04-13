@@ -87,3 +87,4 @@ cheatsheet.code-workspace
 .vscode/
 dirlist.txt
 .DS_Store
+.markdownlint.json

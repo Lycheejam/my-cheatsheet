@@ -21,11 +21,9 @@
     "vuepress-sidebar-generator": "^0.1.0",
     "webpack-dev-middleware": "^3.6.0"
   },
-  "Dependencies": {
-    "vuepress": "^0.14.10",
-    "webpack-dev-middleware": "3.6.0"
-  },
   "dependencies": {
+    "vuepress": "^0.14.10",
+    "webpack-dev-middleware": "3.6.0",
     "esm": "^3.2.22",
     "vuepress-plugin-sitemap": "^2.1.2"
   }
