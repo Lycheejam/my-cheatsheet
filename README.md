@@ -14,8 +14,8 @@ VuePressを使用したミニブログです。
 
 ## 開発環境
 
-* Mac OS X Mojave 10.14.3
-* VisualStudio Code 1.32.2
+* Mac OS X Mojave 10.14.4
+* VisualStudio Code 1.33.1
 
 ```sh
 $ node -v
@@ -28,10 +28,9 @@ $ vuepress -V
 
 ## インフラ構成
 
-基盤はAWSを使用しています。
-
 CloudFront + S3の基本構成でAWS CodeBuildによる自動ビルド・デプロイ環境を整備済みです。  
 DNSはAWS Route53を使用しSSL証明書はACMを使用しています。
+また、CloudWatchでCodeBuildのビルドイベントを監視しビルド結果をLINEの自端末に通知します。
 
 ![インフラ構成図](images/cheatsheet.png)
 
@@ -43,10 +42,12 @@ DNSはAWS Route53を使用しSSL証明書はACMを使用しています。
 * [VuePressに GoogleSearchConsole のメタタグを埋め込む \- あとらすの備忘録](https://kitigai.hatenablog.com/entry/2019/03/28/233451)
 * [Algolia DocSearch\-Scraperでクロールを実行する（INDEXを作成する） \- あとらすの備忘録](https://kitigai.hatenablog.com/entry/2019/04/03/155921)
 * [VuePressでAlgolia DocSearchを有効化する（申請パターン） \- あとらすの備忘録](https://kitigai.hatenablog.com/entry/2019/04/04/133432)
+* [AWS CodeBuildでGitHub Webhookイベントをフィルタリングする \- あとらすの備忘録](https://kitigai.hatenablog.com/entry/2019/04/13/220607)
+* [AWS CodeBuildのビルド結果をLambdaを使ってLINEへ通知する \- あとらすの備忘録](https://kitigai.hatenablog.com/entry/2019/04/14/163338)
 
 # 関連プロジェクト
 本プロジェクトは下記のプロジェクトと関連しています。
 
-* 
+* [Lycheejam/linebot\_cb: LINE BOT for CodeBuild result notification](https://github.com/Lycheejam/linebot_cb)
 * 
 * 
