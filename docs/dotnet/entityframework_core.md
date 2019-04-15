@@ -8,6 +8,18 @@
 $ dotnet ef migrations add <NAME>
 ```
 
+## Migration一覧
+
+```sh
+$ dotnet ef migrations list
+```
+
+## Databaseアップデート
+
+```sh
+$ dotnet ef database update <MIGRATE_NAME>
+```
+
 ## 参考サイト様
 
 * [EF Core ツール リファレンス \(\.NET CLI\) \- EF Core \| Microsoft Docs](https://docs.microsoft.com/ja-jp/ef/core/miscellaneous/cli/dotnet)
