@@ -2,10 +2,34 @@
 
 * NAME = 追加するマイグレーション名
 
-## migration追加
+## Database削除
+
+```sh
+$ dotnet ef -v database drop
+```
+
+## Migration追加
 
 ```sh
 $ dotnet ef migrations add <NAME>
+```
+
+## Migration一覧
+
+```sh
+$ dotnet ef migrations list
+```
+
+## Migration削除
+
+```sh
+$ dotnet ef migrations remove
+```
+
+## Databaseアップデート
+
+```sh
+$ dotnet ef database update <MIGRATE_NAME>
 ```
 
 ## 参考サイト様
