@@ -7,13 +7,15 @@ MacとWindowsキーが混在する。
 
 カテゴライズも増えてから考える。
 
-## 新規系
+## 一覧
 
 |概要|Mac|Windows|
 |-|-|-|
 |新規ウィンドウ|`command（⌘）` + `N`||
 |新規シークレットウィンドウ|`command（⌘）` + `shift（⇧）` + `N`||
 |新規タブ|`command（⌘）` + `T`||
+|タブ前後移動|`command（⌘）` + `option（⌥）` +  + `左（◀）` or `右（▶）`||
+|アドレスバーにフォーカス|`command（⌘）` + `L`||
 
 ## テンプレート
 
@@ -25,3 +27,7 @@ MacとWindowsキーが混在する。
 `shift（⇧）`
 
 ### Windowsキーボード
+
+## 参考サイト様
+
+* [Chrome のキーボード ショートカット \- Google Chrome ヘルプ](https://support.google.com/chrome/answer/157179?hl=ja)
