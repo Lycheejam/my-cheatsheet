@@ -32,6 +32,16 @@ $ dotnet ef migrations remove
 $ dotnet ef database update <MIGRATE_NAME>
 ```
 
+## SQLスクリプト発行
+
+```sh
+$ dotnet ef migrations script <MIGRATE_NAME（FROM）> <MIGRATE_NAME（TO）>
+```
+
+* FROMは既定で`0`
+* FROMだけ指定するとそのマイグレーション移行を対象にする。
+  * 未指定の場合、最初のマイグレーションから最後までのSQLスクリプトを発行する。
+
 ## 参考サイト様
 
 * [EF Core ツール リファレンス \(\.NET CLI\) \- EF Core \| Microsoft Docs](https://docs.microsoft.com/ja-jp/ef/core/miscellaneous/cli/dotnet)
