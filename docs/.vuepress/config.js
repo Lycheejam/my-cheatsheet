@@ -26,6 +26,7 @@ module.exports = {
     sidebar: [
       ['', 'TOPページ'],
       '/privacy',
+      sidebar.getSidebarGroup('php', 'PHP', true),
       sidebar.getSidebarGroup('git', 'git', true),
       sidebar.getSidebarGroup('mysql', 'MySQL', true),
       sidebar.getSidebarGroup('npm', 'npm', true),
