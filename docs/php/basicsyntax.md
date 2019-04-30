@@ -192,9 +192,9 @@ while($i < 100) {
 #### 配列の場合
 
 ```php
-	foreach($item as $items) {
-		something;
-  }
+foreach($item as $items) {
+  something;
+}
 ```
 
 #### 連想配列の場合の構文
