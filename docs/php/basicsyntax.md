@@ -192,7 +192,7 @@ while($i < 100) {
 #### 配列の場合
 
 ```php
-foreach($item as $items) {
+foreach($items as $item) {
   something;
 }
 ```
