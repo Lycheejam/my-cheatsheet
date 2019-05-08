@@ -18,6 +18,8 @@
   "homepage": "https://github.com/Lycheejam/my-cheatsheet#readme",
   "devDependencies": {
     "vuepress": "^0.14.11",
-    "vuepress-sidebar-generator": "^0.1.1"
+    "vuepress-sidebar-generator": "^0.1.1",
+    "esm": "^3.2.22",
+    "vuepress-plugin-sitemap": "^2.1.2"
   }
 }
