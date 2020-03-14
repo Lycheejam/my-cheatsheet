@@ -2,7 +2,11 @@ const sidebar = require('vuepress-sidebar-generator')
 
 module.exports = {
   title: 'チラ裏のメモ帳',
-  ga: 'UA-106566961-4',
+  plugins: [
+    ['@vuepress/google-analytics', {
+      ga: 'UA-106566961-4'
+    }]
+  ],
   head: [
     [ 'script', { type: 'text/javascript', src: 'https://platform.twitter.com/widgets.js', charset: 'utf-8', defer: 'defer', async: 'async' } ],
     [ 'script', { type: 'text/javascript', src: 'https://b.st-hatena.com/js/bookmark_button.js', charset: 'utf-8', defer: 'defer', async: 'async' } ],
